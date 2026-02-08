@@ -291,8 +291,8 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
     <div ref={containerRef} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative group">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-500 to-red-500 opacity-20"></div>
 
-      {/* Interaction Mode Controls - Di chuyển xuống dưới trái */}
-      <div className="absolute bottom-12 left-4 flex flex-col gap-2 z-10">
+      {/* Interaction Mode Controls - Bên phải, dưới thang ứng suất */}
+      <div className="absolute top-[140px] right-4 flex flex-col gap-2 z-10">
         <div className="flex bg-white/90 backdrop-blur rounded-lg p-1 border border-slate-200 shadow-sm">
           <button
             onClick={() => setMode('force')}
@@ -308,7 +308,9 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
             className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all flex items-center gap-1.5 ${mode === 'measure' ? 'bg-blue-600 text-white shadow' : 'text-slate-500 hover:bg-slate-100'}`}
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              <circle cx="12" cy="12" r="10" strokeWidth={2} />
+              <circle cx="12" cy="12" r="6" strokeWidth={2} />
+              <circle cx="12" cy="12" r="2" strokeWidth={2} />
             </svg>
             Đo đạc
           </button>
@@ -317,7 +319,7 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
         {pinnedPoints.length > 0 && (
           <button
             onClick={() => setPinnedPoints([])}
-            className="self-start px-3 py-1.5 bg-white/90 backdrop-blur border border-slate-200 shadow-sm rounded-lg text-xs font-medium text-red-600 hover:bg-red-50 transition-colors"
+            className="self-end px-3 py-1.5 bg-white/90 backdrop-blur border border-slate-200 shadow-sm rounded-lg text-xs font-medium text-red-600 hover:bg-red-50 transition-colors"
           >
             Xóa điểm ({pinnedPoints.length})
           </button>
