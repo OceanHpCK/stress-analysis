@@ -266,7 +266,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-12">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col">
 
       <ExplanationModal
         isOpen={isExplanationOpen}
@@ -300,7 +300,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 md:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 py-8 flex-grow">
 
         {/* TOP: Controls */}
         <Controls
