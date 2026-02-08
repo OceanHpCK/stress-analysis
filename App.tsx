@@ -333,7 +333,7 @@ const App: React.FC = () => {
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
+        model: 'gemini-3-pro',
         contents: [
           {
             role: 'user',
