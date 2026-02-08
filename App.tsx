@@ -25,64 +25,125 @@ const ExplanationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             </svg>
           </button>
         </div>
-        <div className="p-6 text-slate-700 space-y-8">
+        <div className="p-6 text-slate-700 space-y-6">
+          {/* Giới thiệu */}
           <section>
             <h4 className="font-bold text-slate-900 mb-3 text-base border-l-4 border-blue-500 pl-3">
-              1. Mô hình vật lý
+              1. Giới thiệu
             </h4>
             <p className="text-sm leading-relaxed text-slate-600 text-justify">
-              Sản phẩm được mô hình hóa dưới dạng <strong>dầm console (cantilever beam)</strong> ngàm tại đầu trái ($x=0$).
-              Tiết diện của dầm là hình chữ nhật có chiều cao $h(x)$ thay đổi theo trục $x$ (do hình dạng vát và dốc) và bề dày $w$ không đổi.
+              Tài liệu này trình bày các tính toán về lực tác động của nước biển lên đường ống <strong>HDPE DN800 PN10 (SDR17)</strong> trong ba kịch bản thời tiết khác nhau. Mục tiêu nhằm xác định tải trọng cực đại tại các điểm trọng yếu, phục vụ công tác thiết kế đối trọng và lập phương án thi công an toàn.
             </p>
           </section>
 
+          {/* Thông số kỹ thuật */}
           <section>
             <h4 className="font-bold text-slate-900 mb-3 text-base border-l-4 border-green-500 pl-3">
-              2. Công thức Ứng suất uốn
+              2. Thông số kỹ thuật đầu vào
             </h4>
-            <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-sm text-center mb-4 shadow-sm text-slate-800">
-              σ = (M · y) / I
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
-              <div className="bg-white p-3 rounded border border-slate-100 shadow-sm">
-                <strong className="text-slate-800 block mb-1">σ (Sigma)</strong>
-                Ứng suất pháp tại điểm tính toán (MPa).
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div className="bg-green-50 p-3 rounded border border-green-100">
+                <strong className="text-slate-800">Vật liệu:</strong> HDPE PE100
               </div>
-              <div className="bg-white p-3 rounded border border-slate-100 shadow-sm">
-                <strong className="text-slate-800 block mb-1">y</strong>
-                Khoảng cách từ trục trung hòa (Neutral Axis) đến điểm tính toán (mm). Trục trung hòa nằm tại $h/2$.
+              <div className="bg-green-50 p-3 rounded border border-green-100">
+                <strong className="text-slate-800">Kích thước:</strong> DN800 (OD 800mm), SDR17 (Dày 47.4mm)
               </div>
-              <div className="bg-white p-3 rounded border border-slate-100 shadow-sm md:col-span-2">
-                <strong className="text-slate-800 block mb-1">M (Momen uốn)</strong>
-                {'Tại vị trí $x < x_{luc}$, momen uốn được tính bằng:'}
-                <div className="font-mono text-xs mt-1 text-slate-500 bg-slate-50 p-1 rounded inline-block">M = F · |x_luc - x|</div>
-                <div className="text-xs mt-1 italic">{'(Momen bằng 0 tại các vị trí $x > x_{luc}$)'}</div>
+              <div className="bg-green-50 p-3 rounded border border-green-100">
+                <strong className="text-slate-800">Nhịp lắp đặt (L):</strong> 3.0 m
+              </div>
+              <div className="bg-green-50 p-3 rounded border border-green-100">
+                <strong className="text-slate-800">Môi trường:</strong> Nước biển (ρ = 1025 kg/m³)
+              </div>
+              <div className="bg-green-50 p-3 rounded border border-green-100 md:col-span-2">
+                <strong className="text-slate-800">Gia tốc trọng trường (g):</strong> 9.81 m/s²
               </div>
             </div>
           </section>
 
+          {/* Cơ sở tính toán */}
           <section>
             <h4 className="font-bold text-slate-900 mb-3 text-base border-l-4 border-amber-500 pl-3">
-              3. Momen Quán tính (Moment of Inertia)
+              3. Cơ sở tính toán
             </h4>
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex-1 text-sm text-slate-600 text-justify">
-                Đối với tiết diện hình chữ nhật, khả năng chống uốn phụ thuộc vào bề dày và lập phương chiều cao. Chiều cao $h$ đóng vai trò quan trọng nhất trong việc giảm ứng suất.
+            <p className="text-sm text-slate-600 mb-4">
+              Các lực được tính toán dựa trên các phương trình cơ bản của thủy động lực học:
+            </p>
+
+            <div className="space-y-4">
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                <strong className="text-slate-800 block mb-2">3.1. Lực cản dòng chảy (Fd) - Phương trình Morison:</strong>
+                <div className="font-mono text-sm text-center bg-white p-2 rounded border border-amber-200 mb-2">
+                  Fd = ½ · ρ · v² · Cd · D
+                </div>
+                <p className="text-xs text-slate-500">
+                  Cd (Hệ số cản) = 1.0 cho ống trụ tròn; v = vận tốc dòng chảy (m/s)
+                </p>
               </div>
-              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100 font-mono text-sm text-center min-w-[200px] text-amber-800">
-                I = (w · h³) / 12
+
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                <strong className="text-slate-800 block mb-2">3.2. Lực cắt tại điểm khảo sát V(x):</strong>
+                <div className="font-mono text-sm text-center bg-white p-2 rounded border border-amber-200 mb-2">
+                  V(x) = q · (L/2 - x)
+                </div>
+                <p className="text-xs text-slate-500">
+                  q = tổng tải trọng ngang phân bố đều (N/m)
+                </p>
               </div>
             </div>
           </section>
 
+          {/* Bảng phân tích kịch bản */}
           <section>
             <h4 className="font-bold text-slate-900 mb-3 text-base border-l-4 border-red-500 pl-3">
-              4. Hệ số tập trung ứng suất (SCF)
+              4. Phân tích theo các kịch bản thời tiết
             </h4>
-            <p className="text-sm text-slate-600 text-justify bg-red-50 p-3 rounded border border-red-100">
-              Tại góc vát ($x = LeftWidth$), sự thay đổi hình học đột ngột gây ra hiện tượng tập trung ứng suất.
-              Mô phỏng này áp dụng một hệ số nhân cục bộ (SCF $\approx$ 2.0) giảm dần theo khoảng cách để phản ánh thực tế: <strong>Ứng suất tại góc nhọn sẽ lớn hơn tính toán lý thuyết.</strong>
+            <p className="text-sm text-slate-600 mb-3">
+              Bảng giá trị lực tại vị trí cách điểm cố định 150mm (vùng nhạy cảm nhất về ứng suất):
             </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-100">
+                    <th className="border border-slate-200 p-2 text-left">Thông số</th>
+                    <th className="border border-slate-200 p-2 text-center bg-blue-50">Biển lặng</th>
+                    <th className="border border-slate-200 p-2 text-center bg-yellow-50">Dòng mạnh</th>
+                    <th className="border border-slate-200 p-2 text-center bg-red-50">Bão</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-slate-200 p-2">Vận tốc nước (v)</td>
+                    <td className="border border-slate-200 p-2 text-center">0.5 m/s</td>
+                    <td className="border border-slate-200 p-2 text-center">1.5 m/s</td>
+                    <td className="border border-slate-200 p-2 text-center">3.0 m/s</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="border border-slate-200 p-2">Lực cản (Fd)</td>
+                    <td className="border border-slate-200 p-2 text-center">103 N/m</td>
+                    <td className="border border-slate-200 p-2 text-center">922 N/m</td>
+                    <td className="border border-slate-200 p-2 text-center font-bold text-red-600">3,690 N/m</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-200 p-2">Tổng tải ngang (q)</td>
+                    <td className="border border-slate-200 p-2 text-center">206 N/m</td>
+                    <td className="border border-slate-200 p-2 text-center">1,436 N/m</td>
+                    <td className="border border-slate-200 p-2 text-center font-bold text-red-600">5,234 N/m</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="border border-slate-200 p-2">Lực tại 150mm</td>
+                    <td className="border border-slate-200 p-2 text-center font-bold text-green-600">278 N</td>
+                    <td className="border border-slate-200 p-2 text-center font-bold text-yellow-600">1,938 N</td>
+                    <td className="border border-slate-200 p-2 text-center font-bold text-red-600">7,065 N</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-slate-200 p-2">Trạng thái</td>
+                    <td className="border border-slate-200 p-2 text-center text-green-600 text-[10px]">Lý tưởng thi công</td>
+                    <td className="border border-slate-200 p-2 text-center text-yellow-600 text-[10px]">Cần tàu hỗ trợ</td>
+                    <td className="border border-slate-200 p-2 text-center text-red-600 text-[10px] font-bold">DỪNG THI CÔNG</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
         </div>
         <div className="p-4 border-t border-slate-100 bg-slate-50 flex justify-end sticky bottom-0 z-10">
