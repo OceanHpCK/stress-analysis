@@ -103,6 +103,51 @@ const ExplanationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   <li><strong>SCF (Hệ số tập trung ứng suất):</strong> K = 2.0 tại các góc vát (Điểm A)</li>
                 </ul>
               </div>
+
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                <strong className="text-slate-800 block mb-2">3.4. Mô hình lực trong hình mô phỏng (Force Model):</strong>
+                <p className="text-xs text-slate-600 mb-3 italic">Hình mô phỏng sử dụng mô hình dầm console (cantilever beam) với các tính toán sau:</p>
+
+                <div className="space-y-3">
+                  <div className="bg-white p-3 rounded border border-amber-200">
+                    <strong className="text-[11px] text-slate-700 block mb-1">① Chiều cao dầm theo vị trí h(x):</strong>
+                    <ul className="text-[10px] text-slate-500 space-y-0.5 list-disc pl-4">
+                      <li>Vùng bậc (x ≤ c): h = d (chiều cao tổng)</li>
+                      <li>Vùng dốc (c &lt; x &lt; c+b): h giảm tuyến tính từ (d-a) đến e</li>
+                      <li>Vùng ống (x ≥ c+b): h = e (chiều dày ống)</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white p-3 rounded border border-amber-200">
+                    <strong className="text-[11px] text-slate-700 block mb-1">② Moment uốn M(x):</strong>
+                    <div className="font-mono text-[11px] text-center bg-slate-50 p-1.5 rounded mb-1">
+                      M = F × (x_lực - x_điểm)
+                    </div>
+                    <p className="text-[10px] text-slate-500">Với x_lực là vị trí đặt lực, x_điểm là điểm tính ứng suất. Chỉ tính khi x_điểm &lt; x_lực.</p>
+                  </div>
+
+                  <div className="bg-white p-3 rounded border border-amber-200">
+                    <strong className="text-[11px] text-slate-700 block mb-1">③ Mô-men quán tính I(x):</strong>
+                    <div className="font-mono text-[11px] text-center bg-slate-50 p-1.5 rounded mb-1">
+                      I = (e × h(x)³) / 12
+                    </div>
+                    <p className="text-[10px] text-slate-500">Với e = chiều dày ống (endHeight), h(x) = chiều cao tại vị trí x.</p>
+                  </div>
+
+                  <div className="bg-white p-3 rounded border border-amber-200">
+                    <strong className="text-[11px] text-slate-700 block mb-1">④ Ứng suất σ(x, y):</strong>
+                    <div className="font-mono text-[11px] text-center bg-slate-50 p-1.5 rounded mb-1">
+                      σ = (M × |y - h/2|) / I
+                    </div>
+                    <p className="text-[10px] text-slate-500">Với y là khoảng cách từ đáy, h/2 là trục trung hòa.</p>
+                  </div>
+
+                  <div className="bg-white p-3 rounded border border-amber-200">
+                    <strong className="text-[11px] text-slate-700 block mb-1">⑤ Hệ số tập trung ứng suất (SCF):</strong>
+                    <p className="text-[10px] text-slate-500">Tại vùng lân cận góc vát (bán kính 15mm), áp dụng SCF = 2.0 với suy giảm tuyến tính theo khoảng cách.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
