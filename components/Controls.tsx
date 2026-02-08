@@ -79,19 +79,43 @@ const Controls: React.FC<Props> = ({
           <h3 className="font-semibold text-slate-800">Vật liệu</h3>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           <div>
             <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Tên vật liệu</label>
             <input
               type="text"
               value={material.name}
               onChange={(e) => handleMaterialChange('name', e.target.value)}
-              className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 outline-none"
+              className="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 outline-none"
             />
           </div>
-          <div className="grid grid-cols-2 gap-3">
-            <InputGroup label="Giới hạn bền" value={material.yieldStrength} unit="MPa" onChange={(v) => handleMaterialChange('yieldStrength', v)} />
-            <InputGroup label="Module Đàn hồi" value={material.modulus} unit="MPa" onChange={(v) => handleMaterialChange('modulus', v)} />
+
+          {/* Aligned Material Properties */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap min-w-[90px]">Giới hạn bền</label>
+              <div className="relative flex-1">
+                <input
+                  type="number"
+                  value={material.yieldStrength}
+                  onChange={(e) => handleMaterialChange('yieldStrength', e.target.value)}
+                  className="w-full pl-2 pr-12 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
+                />
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-medium select-none">MPa</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap min-w-[90px]">Module đàn hồi</label>
+              <div className="relative flex-1">
+                <input
+                  type="number"
+                  value={material.modulus}
+                  onChange={(e) => handleMaterialChange('modulus', e.target.value)}
+                  className="w-full pl-2 pr-12 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
+                />
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-medium select-none">MPa</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

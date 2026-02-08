@@ -405,19 +405,19 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-slate-300 py-6 px-4 mt-8">
-        <div className="max-w-7xl mx-auto text-center space-y-2">
-          <div className="flex items-center justify-center gap-2 text-lg font-bold text-white">
-            <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <footer className="bg-slate-100 border-t border-slate-200 py-4 px-4 mt-8">
+        <div className="max-w-7xl mx-auto text-center space-y-1.5">
+          <div className="flex items-center justify-center gap-1.5 text-sm font-semibold text-slate-700">
+            <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
             Stress Analyzer NTP
           </div>
-          <p className="text-sm text-slate-400">
-            Powered by <span className="text-blue-400 font-semibold">DuongHp</span>
+          <p className="text-xs text-slate-500">
+            Powered by <span className="text-blue-600 font-semibold">DuongHp</span>
           </p>
-          <p className="text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed mt-3 bg-slate-700/50 p-3 rounded-lg">
-            <span className="text-amber-400 font-semibold">⚠️ Lưu ý:</span> Kết quả tính toán chỉ mang tính chất tham khảo. Cần tham khảo ý kiến kỹ sư chuyên ngành cho dự án thực tế.
+          <p className="text-[10px] text-slate-500 max-w-xl mx-auto leading-relaxed mt-2 bg-amber-50 border border-amber-200 px-3 py-2 rounded-lg">
+            <span className="text-amber-600 font-semibold">⚠️ Lưu ý:</span> Kết quả tính toán chỉ mang tính chất tham khảo. Cần tham khảo ý kiến kỹ sư chuyên ngành cho dự án thực tế.
           </p>
         </div>
       </footer>
