@@ -93,27 +93,27 @@ const Controls: React.FC<Props> = ({
           {/* Aligned Material Properties */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap min-w-[90px]">Giới hạn bền</label>
-              <div className="relative flex-1">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap w-[100px] shrink-0">Giới hạn độ bền</label>
+              <div className="relative flex-1 min-w-[80px]">
                 <input
                   type="number"
                   value={material.yieldStrength}
                   onChange={(e) => handleMaterialChange('yieldStrength', e.target.value)}
-                  className="w-full pl-2 pr-12 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
+                  className="w-full pl-2 pr-10 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
                 />
-                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-medium select-none">MPa</span>
+                <span className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[9px] text-slate-400 font-medium select-none">MPa</span>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap min-w-[90px]">Module đàn hồi</label>
-              <div className="relative flex-1">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap w-[100px] shrink-0">Module đàn hồi</label>
+              <div className="relative flex-1 min-w-[80px]">
                 <input
                   type="number"
                   value={material.modulus}
                   onChange={(e) => handleMaterialChange('modulus', e.target.value)}
-                  className="w-full pl-2 pr-12 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
+                  className="w-full pl-2 pr-10 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white transition-all outline-none"
                 />
-                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-medium select-none">MPa</span>
+                <span className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[9px] text-slate-400 font-medium select-none">MPa</span>
               </div>
             </div>
           </div>
