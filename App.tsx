@@ -89,6 +89,20 @@ const ExplanationModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
                   q = tổng tải trọng ngang phân bố đều (N/m)
                 </p>
               </div>
+
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                <strong className="text-slate-800 block mb-2">3.3. Mô hình tính toán ứng suất (Stress Model):</strong>
+                <p className="text-xs text-slate-600 mb-2 italic">Sử dụng lý thuyết dầm Euler-Bernoulli cho dầm console tiết diện thay đổi:</p>
+                <div className="font-mono text-sm text-center bg-white p-2 rounded border border-amber-200 mb-2">
+                  σ = (M · y) / I
+                </div>
+                <ul className="text-[11px] text-slate-500 space-y-1 list-disc pl-4">
+                  <li><strong>M (Moment):</strong> F · (x_load - x_point)</li>
+                  <li><strong>I (Mô-men quán tính):</strong> (b · h³) / 12 (Tiết diện chữ nhật)</li>
+                  <li><strong>y:</strong> Khoảng cách từ trục trung hòa đến điểm khảo sát</li>
+                  <li><strong>SCF (Hệ số tập trung ứng suất):</strong> K = 2.0 tại các góc vát (Điểm A)</li>
+                </ul>
+              </div>
             </div>
           </section>
 
