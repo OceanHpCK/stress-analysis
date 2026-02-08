@@ -231,19 +231,19 @@ const App: React.FC = () => {
   const [isExplanationOpen, setIsExplanationOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [apiKey, setApiKey] = useState<string>(() => {
-    // Load from localStorage on init
+    // Load from sessionStorage on init
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('gemini_api_key') || '';
+      return sessionStorage.getItem('gemini_api_key') || '';
     }
     return '';
   });
   const [aiAnalysis, setAiAnalysis] = useState<string>('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-  // Save API key to localStorage
+  // Save API key to sessionStorage
   const handleSaveApiKey = (key: string) => {
     setApiKey(key);
-    localStorage.setItem('gemini_api_key', key);
+    sessionStorage.setItem('gemini_api_key', key);
     setIsSettingsOpen(false);
   };
 
