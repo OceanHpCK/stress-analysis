@@ -333,14 +333,19 @@ const App: React.FC = () => {
       `;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-pro-preview',
-        contents: prompt,
+        model: 'gemini-1.5-flash',
+        contents: [
+          {
+            role: 'user',
+            parts: [{ text: prompt }]
+          }
+        ],
       });
 
       setAiAnalysis(response.text || "Không có phản hồi.");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      setAiAnalysis("Lỗi: Không thể kết nối với Gemini. Vui lòng kiểm tra xem biến môi trường API_KEY đã được cấu hình chính xác chưa.");
+      setAiAnalysis(`Lỗi: ${error.message || "Không thể kết nối với Gemini."}`);
     } finally {
       setIsAnalyzing(false);
     }
