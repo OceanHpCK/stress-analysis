@@ -137,10 +137,11 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
       ctx.restore();
     };
 
-    drawDimLine(toScreen(0, 0), toScreen(0, dimensions.totalHeight), `${dimensions.totalHeight}`, -30, 'y');
-    drawDimLine(toScreen(0, dimensions.totalHeight), toScreen(dimensions.leftWidth, dimensions.totalHeight), `${dimensions.leftWidth}`, -20, 'x');
+    drawDimLine(toScreen(0, 0), toScreen(0, dimensions.totalHeight), `d=${dimensions.totalHeight}`, -30, 'y');
+    drawDimLine(toScreen(0, dimensions.totalHeight), toScreen(dimensions.leftWidth, dimensions.totalHeight), `c=${dimensions.leftWidth}`, -20, 'x');
     drawDimLine(toScreen(dimensions.leftWidth, dimensions.totalHeight), toScreen(dimensions.leftWidth, dimensions.totalHeight - dimensions.a), `a=${dimensions.a}`, 30, 'y');
     drawDimLine(toScreen(dimensions.leftWidth, 0), toScreen(dimensions.leftWidth + dimensions.b, 0), `b=${dimensions.b}`, 20, 'x');
+    drawDimLine(toScreen(dimensions.totalLength, 0), toScreen(dimensions.totalLength, dimensions.endHeight), `e=${dimensions.endHeight}`, 30, 'y');
 
     // Force Position Dimension (New)
     const isTopForce = force.type === ForceType.F;
