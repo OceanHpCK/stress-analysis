@@ -66,7 +66,7 @@ const Controls: React.FC<Props> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
 
       {/* 1. Material Configuration */}
       <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col gap-4">
@@ -96,8 +96,8 @@ const Controls: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* 2. Geometry Configuration */}
-      <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col gap-4">
+      {/* 2. Geometry Configuration - Chiếm 2 cột */}
+      <div className="md:col-span-2 bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col gap-4">
         <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
           <div className="p-1.5 bg-blue-100 rounded-md">
             <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +112,7 @@ const Controls: React.FC<Props> = ({
           <InputGroup label="d (Cao tổng)" value={dims.totalHeight} unit="mm" onChange={(v) => handleDimChange('totalHeight', v)} />
           <InputGroup label="e (Chiều dày ống)" value={dims.endHeight} unit="mm" onChange={(v) => handleDimChange('endHeight', v)} />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           <InputGroup label="Chiều dài vát (a)" value={dims.a} unit="mm" onChange={(v) => handleDimChange('a', v)} />
           <InputGroup label="Chiều dài dốc (b)" value={dims.b} unit="mm" onChange={(v) => handleDimChange('b', v)} />
           <InputGroup label="Tổng chiều dài" value={dims.totalLength} unit="mm" onChange={(v) => handleDimChange('totalLength', v)} />
