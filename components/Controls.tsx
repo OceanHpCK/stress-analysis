@@ -91,34 +91,19 @@ const Controls: React.FC<Props> = ({
           </div>
 
           {/* Aligned Material Properties */}
-          <div className="space-y-2">
-            {/* Giới hạn độ bền */}
-            <div className="flex items-center justify-between gap-3">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">Giới hạn độ bền</label>
-              <div className="flex items-center bg-slate-50 border border-slate-200 rounded-lg px-2 w-[120px]">
-                <input
-                  type="number"
-                  value={material.yieldStrength}
-                  onChange={(e) => handleMaterialChange('yieldStrength', e.target.value)}
-                  className="w-full bg-transparent border-none text-xs font-semibold text-slate-700 focus:ring-0 outline-none py-1.5 text-right pr-1"
-                />
-                <span className="text-[9px] text-slate-400 font-medium select-none shrink-0 border-l border-slate-200 pl-1 ml-1 h-3 flex items-center">MPa</span>
-              </div>
-            </div>
-
-            {/* Module đàn hồi */}
-            <div className="flex items-center justify-between gap-3">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">Module đàn hồi</label>
-              <div className="flex items-center bg-slate-50 border border-slate-200 rounded-lg px-2 w-[120px]">
-                <input
-                  type="number"
-                  value={material.modulus}
-                  onChange={(e) => handleMaterialChange('modulus', e.target.value)}
-                  className="w-full bg-transparent border-none text-xs font-semibold text-slate-700 focus:ring-0 outline-none py-1.5 text-right pr-1"
-                />
-                <span className="text-[9px] text-slate-400 font-medium select-none shrink-0 border-l border-slate-200 pl-1 ml-1 h-3 flex items-center">MPa</span>
-              </div>
-            </div>
+          <div className="space-y-3">
+            <InputGroup
+              label="Giới hạn độ bền"
+              value={material.yieldStrength}
+              unit="MPa"
+              onChange={(v) => handleMaterialChange('yieldStrength', v)}
+            />
+            <InputGroup
+              label="Module đàn hồi"
+              value={material.modulus}
+              unit="MPa"
+              onChange={(v) => handleMaterialChange('modulus', v)}
+            />
           </div>
         </div>
       </div>
