@@ -1,0 +1,5 @@
+{
+  "name": "Stress Distribution Analyzer",
+  "description": "Interactive simulator for analyzing force distribution and structural stress on a variable geometry L-beam product.",
+  "requestFramePermissions": []
+}
