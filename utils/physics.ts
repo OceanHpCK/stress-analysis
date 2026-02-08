@@ -48,11 +48,11 @@ export const calculateStressMPa = (
   const distanceToLoad = Math.abs(forceX - x); // mm
   const moment = forceMagnitude * distanceToLoad; // N*mm
 
-  // Geometric Properties
-  const width = dims.width; // mm
+  // Geometric Properties - Sử dụng endHeight (e) làm chiều dày ống
+  const thickness = dims.endHeight; // mm (chiều dày ống = e)
 
-  // Moment of Inertia I = (w * h^3) / 12
-  const I = (width * Math.pow(h, 3)) / 12;
+  // Moment of Inertia I = (thickness * h^3) / 12
+  const I = (thickness * Math.pow(h, 3)) / 12;
 
   // Distance from Neutral Axis
   const neutralAxis = h / 2;
