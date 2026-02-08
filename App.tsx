@@ -131,8 +131,27 @@ const App: React.FC = () => {
   }
 
   // Calculations
-  // Điểm A: giao giữa a và b (x = leftWidth, y = totalHeight - a) - điểm yếu nhất
-  const stressAtA = getMaxStressAtSection(dimensions.leftWidth, dimensions, forceConfig.positionX, forceConfig.magnitude, dimensions.totalHeight - dimensions.a);
+  // Điểm A: Tìm ứng suất max tại vùng góc vát (scan nhiều điểm quanh corner để lấy max)
+  const getMaxStressAtCorner = () => {
+    const cornerX = dimensions.leftWidth;
+    const cornerY = dimensions.totalHeight - dimensions.a;
+    let maxStress = 0;
+
+    // Scan các điểm quanh góc để tìm stress max
+    for (let dx = -10; dx <= 10; dx += 2) {
+      for (let dy = -10; dy <= 10; dy += 2) {
+        const x = cornerX + dx;
+        const y = cornerY + dy;
+        if (x >= 0 && x <= dimensions.totalLength && y >= 0) {
+          const stress = getMaxStressAtSection(x, dimensions, forceConfig.positionX, forceConfig.magnitude, y);
+          if (stress > maxStress) maxStress = stress;
+        }
+      }
+    }
+    return maxStress;
+  };
+
+  const stressAtA = getMaxStressAtCorner();
   const stressAtB = getMaxStressAtSection(dimensions.leftWidth + dimensions.b, dimensions, forceConfig.positionX, forceConfig.magnitude);
 
   const handleAnalyzeClick = () => {
