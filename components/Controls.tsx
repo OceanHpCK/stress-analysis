@@ -115,7 +115,6 @@ const Controls: React.FC<Props> = ({
         <div className="grid grid-cols-2 gap-3">
           <InputGroup label="Chiều dài vát (a)" value={dims.a} unit="mm" onChange={(v) => handleDimChange('a', v)} />
           <InputGroup label="Chiều dài dốc (b)" value={dims.b} unit="mm" onChange={(v) => handleDimChange('b', v)} />
-          <InputGroup label="Bề dày dầm" value={dims.width} unit="mm" onChange={(v) => handleDimChange('width', v)} />
           <InputGroup label="Tổng chiều dài" value={dims.totalLength} unit="mm" onChange={(v) => handleDimChange('totalLength', v)} />
         </div>
       </div>
