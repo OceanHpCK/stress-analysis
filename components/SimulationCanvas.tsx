@@ -291,8 +291,8 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
     <div ref={containerRef} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden relative group">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-500 to-red-500 opacity-20"></div>
 
-      {/* Interaction Mode Controls - Bên phải, dưới thang ứng suất */}
-      <div className="absolute top-[140px] right-4 flex flex-col gap-2 z-10">
+      {/* Interaction Mode Controls - Trên cùng giữa canvas */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10">
         <div className="flex bg-white/90 backdrop-blur rounded-lg p-1 border border-slate-200 shadow-sm">
           <button
             onClick={() => setMode('force')}
@@ -319,7 +319,7 @@ const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForc
         {pinnedPoints.length > 0 && (
           <button
             onClick={() => setPinnedPoints([])}
-            className="self-end px-3 py-1.5 bg-white/90 backdrop-blur border border-slate-200 shadow-sm rounded-lg text-xs font-medium text-red-600 hover:bg-red-50 transition-colors"
+            className="px-3 py-1.5 bg-white/90 backdrop-blur border border-slate-200 shadow-sm rounded-lg text-xs font-medium text-red-600 hover:bg-red-50 transition-colors"
           >
             Xóa điểm ({pinnedPoints.length})
           </button>
