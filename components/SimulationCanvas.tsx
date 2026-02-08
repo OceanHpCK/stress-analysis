@@ -10,7 +10,7 @@ interface Props {
 }
 
 const SCALE = 3.5; // Pixels per mm
-const PADDING_X = 50;
+const PADDING_X = 100;
 const PADDING_Y = 50;
 
 const SimulationCanvas: React.FC<Props> = ({ dimensions, force, material, onForcePositionChange }) => {
